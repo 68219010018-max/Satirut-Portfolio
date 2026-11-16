@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - ศติรุต รื่นรมย์</title>
+    <!-- นำเข้าฟอนต์ภาษาไทยสวยๆ จาก Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.7;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* ส่วนต้อนรับและรูปโปรไฟล์ */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top; /* จัดตำแหน่งรูปให้เห็นใบหน้าชัดเจน */
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: #2c3e50;
+            padding: 10px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: #2c3e50;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* โครงสร้างแต่ละส่วน */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #2c3e50;
+            font-size: 1.9rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #3498db;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ส่วนเกี่ยวกับฉัน */
+        .about-box {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            background: #eef6fc;
+            color: #2980b9;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ส่วนติดต่อ */
+        .contact {
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            padding: 45px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 750px;
+            margin: 0 auto 40px;
+        }
+
+        .email-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 24px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #2c3e50;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><strong>My<span>Portfolio</span></strong></div>
+        <nav>
+            <a href="#about">เกี่ยวกับฉัน</a>
+            <a href="#contact">ติดต่อ</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <img src="https://discordapp.net" alt="รูปโปรไฟล์ของ ศติรุต รื่นรมย์" class="profile-img">
+        <h1>ศติรุต รื่นรมย์</h1>
+        <p>นักพัฒนาเว็บไซต์และซอฟต์แวร์มือใหม่ | ผู้หลงใหลในการสร้างสรรค์เทคโนโลยี</p>
+        <a href="#contact" class="btn">ติดต่อร่วมงาน</a>
+    </div>
+
+    <section id="about">
+        <h2>เกี่ยวกับฉัน (About Me)</h2>
+        <div class="about-box">
+            <p>
+                สวัสดีครับ ผมชื่อ <strong>ศติรุต รื่นรมย์</strong> ผมสนใจการเขียนโปรแกรมเพราะมองว่ามันเป็นทักษะที่เอาไปสร้างอะไรได้จริง ทั้งเว็บไซต์ แอปพลิเคชัน หรือระบบต่างๆ ที่ช่วยให้ชีวิตประจำวันสะดวกสบายขึ้น
+            </p>
+            <div class="skills">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">Web Design</span>
+                <span class="skill-tag">Problem Solving</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2>ช่องทางติดต่อ (Contact)</h2>
+            <p>หากต้องการพูดคุย แลกเปลี่ยนความรู้ หรือติดต่อเรื่องงาน สามารถส่งอีเมลหาผมได้โดยตรงครับ</p>
+            <a href="mailto:best2307best@gmail.com" class="email-link">best2307best@gmail.com</a>
+        </div>
+    </section>
+
+</body>
+</html>
